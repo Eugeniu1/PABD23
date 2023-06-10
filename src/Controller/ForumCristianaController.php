@@ -49,10 +49,10 @@ class ForumCristianaController extends AbstractController
         $arrayCollection = array();
 
 		foreach($postari as $item) {
-			 $arrayCollection[] = array(
-				 'text' => $item->getText(),
-				 'data' => $item->getData()
-			 );
+			$arrayCollection[] = array(
+				'text' => $item->getText(),
+				'data' => $item->getData()
+			);
 		}
 
 		return new JsonResponse($arrayCollection);
