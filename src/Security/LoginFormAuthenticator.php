@@ -15,8 +15,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-
-class LoginDBAuthenticator extends AbstractLoginFormAuthenticator
+class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
@@ -31,11 +30,9 @@ class LoginDBAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): Passport
     {
-
         $email = $request->request->get('email', '');
 
         $request->getSession()->set(Security::LAST_USERNAME, $email);
-        
 
         return new Passport(
             new UserBadge($email),
@@ -48,28 +45,13 @@ class LoginDBAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
 
-
-        $roles= $token->getUser()->getRoles();
-        $rol=$roles[0];
-        //echo $roles[0];
-        //exit;
-
         // For example:
         //return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        /*if($rol=='ROLE_ADMIN')
-        {
-            return new RedirectResponse($this->urlGenerator->generate('showAdmin'));
-        }
-        else
-        {
-            return new RedirectResponse($this->urlGenerator->generate('galerie_img'));
-        }*/
-        return new RedirectResponse($this->urlGenerator->generate('homeBD'));
+        return new RedirectResponse($this->urlGenerator->generate('movies'));
     }
 
     protected function getLoginUrl(Request $request): string
