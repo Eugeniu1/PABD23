@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\MarosEugeniu;
 
 use App\Entity\Movie;
 use App\Form\MovieFormType;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class MoviesController extends AbstractController{
+class MoviesController extends AbstractController {
     private $em;
     private $movieRepository;
     public function __construct(EntityManagerInterface $em, MovieRepository $movieRepository) {
