@@ -119,6 +119,7 @@ class MoviesController extends AbstractController{
             'movie' => $movie
         ]);
     }
+    
     private function checkLoggedInUser($movieId) {
         if($this->getUser() == null || $this->getUser()->getId() !== $movieId) {
             return $this->redirectToRoute('movies');

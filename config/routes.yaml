@@ -20,3 +20,7 @@ MariaNeculaStan:
 PaulRadu:
     path: /create
     controller: App\Controller\PaulRaduController::create
+
+MarosEugeniu:
+    path: /maroseugeniu
+    controller: App\Controller\MarosEugeniu\MoviesController::index
