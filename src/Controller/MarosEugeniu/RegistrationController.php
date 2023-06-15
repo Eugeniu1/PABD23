@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\MarosEugeniu;
 
-use App\Entity\Admin;
-use App\Form\RegistrationFormType;
+use App\Entity\MarosEugeniu\Admin;
+use App\Form\MarosEugeniu\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

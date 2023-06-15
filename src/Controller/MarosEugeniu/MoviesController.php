@@ -2,9 +2,9 @@
 
 namespace App\Controller\MarosEugeniu;
 
-use App\Entity\Movie;
-use App\Form\MovieFormType;
-use App\Repository\MovieRepository;
+use App\Entity\MarosEugeniu\Movie;
+use App\Form\MarosEugeniu\MovieFormType;
+use App\Repository\MarosEugeniu\MovieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;

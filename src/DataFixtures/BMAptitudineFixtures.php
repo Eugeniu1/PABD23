@@ -9,7 +9,7 @@ class BMAptitudineFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-         $aptitudine1 = new BMAptitudine();
+        $aptitudine1 = new BMAptitudine();
 $aptitudine1->setNume('Team player');
 $aptitudine2 = new BMAptitudine();
 $aptitudine2->setNume('Sociabila');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\MarosEugeniu;
 
 use App\Entity\Movie;
 use Symfony\Component\Form\AbstractType;
