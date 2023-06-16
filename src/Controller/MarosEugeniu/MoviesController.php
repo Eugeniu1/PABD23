@@ -21,7 +21,7 @@ class MoviesController extends AbstractController {
         $this->movieRepository = $movieRepository;
     }
 
-    #[Route('/movies', name: 'movies')]
+    #[Route('/MarosEugeniu/movies', name: 'movies')]
     public function index(): Response{
         $movies = $this->movieRepository->findAll();
         return $this->render('movies/index.html.twig', [
@@ -29,7 +29,7 @@ class MoviesController extends AbstractController {
         ]);
     }
 
-    #[Route('/movies/create', name: 'create_movie')]
+    #[Route('/MarosEugeniu/movies/create', name: 'create_movie')]
     public function create(Request $request): Response{
         $movie = new Movie();
         $form = $this->createForm(MovieFormType::class, $movie);
@@ -54,12 +54,12 @@ class MoviesController extends AbstractController {
             $this->em->flush();
             return $this->redirectToRoute('movies');
         }
-        return $this->render('movies/create.html.twig',[
+        return $this->render('/MarosEugeniu/movies/create.html.twig',[
             'form' => $form->createView()
         ]);
     }
 
-    #[Route('/movies/edit/{id}', name: 'edit_movie')]
+    #[Route('/MarosEugeniu/movies/edit/{id}', name: 'edit_movie')]
     public function edit($id, Request $request): Response{
         $this->checkLoggedInUser($id);
         $movie = $this->movieRepository->find($id);
@@ -95,7 +95,7 @@ class MoviesController extends AbstractController {
                 return $this->redirectToRoute('movies');
             }
         }
-        return $this->render('movies/edit.html.twig', [
+        return $this->render('/MarosEugeniu/movies/edit.html.twig', [
             'movie' => $movie,
             'form' => $form->createView()
         ]);
@@ -110,7 +110,7 @@ class MoviesController extends AbstractController {
         return $this->redirectToRoute('movies');
     }
 
-    #[Route('/movies/{id}', methods: ['GET'], name: 'show_movie')]
+    #[Route('/MarosEugeniu/movies/{id}', methods: ['GET'], name: 'show_movie')]
     public function show($id): Response
     {
         $movie = $this->movieRepository->find($id);

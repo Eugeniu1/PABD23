@@ -28,7 +28,7 @@ class RegistrationController extends AbstractController{
             $entityManager->flush();
             return $this->redirectToRoute('movies');
         }
-        return $this->render('registration/register.html.twig', [
+        return $this->render('/MarosEugeniu/registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
