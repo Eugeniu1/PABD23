@@ -22,5 +22,5 @@ PaulRadu:
     controller: App\Controller\PaulRaduController::create
 
 MarosEugeniu:
-    path: /maroseugeniu
+    path: /movies
     controller: App\Controller\MarosEugeniu\MoviesController::index
