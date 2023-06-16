@@ -25,12 +25,16 @@ class MoviesController extends AbstractController {
     public function index(): Response{
         $movies = $this->movieRepository->findAll();
         return $this->render('movies/index.html.twig', [
-            'movies' => $movies
+            'movies' => $movies,
+            'controller_name' => 'Vezi seteaza variabila asta din controller ca vadca in twig o chemi )))'
         ]);
     }
 
     #[Route('/MarosEugeniu/movies/create', name: 'create_movie')]
     public function create(Request $request): Response{
+
+        phpinfo(); die;
+
         $movie = new Movie();
         $form = $this->createForm(MovieFormType::class, $movie);
         $form->handleRequest($request);
@@ -101,7 +105,7 @@ class MoviesController extends AbstractController {
         ]);
     }
 
-    #[Route('/movies/delete/{id}', methods: ['GET', 'DELETE'], name: 'delete_movie')]
+    #[Route('/MarosEugeniu/movies/delete/{id}', methods: ['GET', 'DELETE'], name: 'delete_movie')]
     public function delete($id): Response{
         $this->checkLoggedInUser($id);
         $movie = $this->movieRepository->find($id);

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '/MarosEugeniu/base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
 
@@ -19,7 +19,6 @@
             <h1 class="text-6xl pt-12 pb-8">
                 Login
             </h1>
-    
             <input 
                 type="email" 
                 value="{{ last_username }}" 
@@ -32,12 +31,12 @@
                 autofocus
             >
 
-            <input 
-                type="password" 
-                name="password" 
-                id="inputPassword" 
-                class="bg-transparent block mt-10 mx-auto border-b-2 w-1/5 h-20 text-2xl outline-none" 
-                autocomplete="current-password" 
+            <input
+                type="password"
+                name="password"
+                id="inputPassword"
+                class="bg-transparent block mt-10 mx-auto border-b-2 w-1/5 h-20 text-2xl outline-none"
+                autocomplete="current-password"
                 placeholder="Password"
                 required
             >
@@ -48,8 +47,8 @@
                 value="{{ csrf_token('authenticate') }}"
             >
 
-            <button 
-                class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg w-1/5 mt-10 font-extrabold py-4 px-8 rounded-3xl" 
+            <button
+                class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg w-1/5 mt-10 font-extrabold py-4 px-8 rounded-3xl"
                 type="submit">
                 Sign in
             </button>

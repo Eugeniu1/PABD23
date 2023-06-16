@@ -6,11 +6,34 @@ use App\Repository\MarosEugeniu\ActorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
+
+/**
+ * @ORM\Entity(repositoryClass=ActorRepository::class)
+ */
 
 class Actor{
+
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     */
     private $name;
-    private $movies;
+
+    /**
+     * @ORM\Column(type="json")
+     */
+
+    private $movies = [];
 
     public function __construct(){
         $this->movies = new ArrayCollection();
