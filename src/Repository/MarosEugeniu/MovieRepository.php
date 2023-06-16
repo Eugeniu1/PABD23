@@ -2,7 +2,7 @@
 
 namespace App\Repository\MarosEugeniu;
 
-use App\Entity\Movie;
+use App\Entity\MarosEugeniu\Movie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
