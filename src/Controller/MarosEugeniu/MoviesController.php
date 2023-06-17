@@ -24,16 +24,14 @@ class MoviesController extends AbstractController {
     #[Route('/MarosEugeniu/movies', name: 'movies')]
     public function index(): Response{
         $movies = $this->movieRepository->findAll();
-        return $this->render('movies/index.html.twig', [
-            'movies' => $movies,
-            'controller_name' => 'Vezi seteaza variabila asta din controller ca vadca in twig o chemi )))'
+        return $this->render('MarosEugeniu/movies/index.html.twig', [
+            'movies' => $movies
+
         ]);
     }
 
     #[Route('/MarosEugeniu/movies/create', name: 'create_movie')]
     public function create(Request $request): Response{
-
-        phpinfo(); die;
 
         $movie = new Movie();
         $form = $this->createForm(MovieFormType::class, $movie);
@@ -58,7 +56,7 @@ class MoviesController extends AbstractController {
             $this->em->flush();
             return $this->redirectToRoute('movies');
         }
-        return $this->render('/MarosEugeniu/movies/create.html.twig',[
+        return $this->render('MarosEugeniu/movies/create.html.twig',[
             'form' => $form->createView()
         ]);
     }
@@ -99,7 +97,7 @@ class MoviesController extends AbstractController {
                 return $this->redirectToRoute('movies');
             }
         }
-        return $this->render('/MarosEugeniu/movies/edit.html.twig', [
+        return $this->render('MarosEugeniu/movies/edit.html.twig', [
             'movie' => $movie,
             'form' => $form->createView()
         ]);
@@ -119,7 +117,7 @@ class MoviesController extends AbstractController {
     {
         $movie = $this->movieRepository->find($id);
         
-        return $this->render('movies/show.html.twig', [
+        return $this->render('MarosEugeniu/movies/show.html.twig', [
             'movie' => $movie
         ]);
     }
