@@ -19,15 +19,15 @@
             <h1 class="text-6xl pt-12 pb-8">
                 Login
             </h1>
-            <input 
-                type="email" 
-                value="{{ last_username }}" 
-                name="email" 
-                id="inputEmail" 
-                class="bg-transparent block mt-10 mx-auto border-b-2 w-1/5 h-20 text-2xl outline-none" 
+            <input
+                type="email"
+                value="{{ last_username }}"
+                name="email"
+                id="inputEmail"
+                class="bg-transparent block mt-10 mx-auto border-b-2 w-1/5 h-20 text-2xl outline-none"
                 placeholder="Email"
-                autocomplete="email" 
-                required 
+                autocomplete="email"
+                required
                 autofocus
             >
 
@@ -41,8 +41,8 @@
                 required
             >
 
-            <input 
-                type="hidden" 
+            <input
+                type="hidden"
                 name="_csrf_token"
                 value="{{ csrf_token('authenticate') }}"
             >
@@ -52,7 +52,7 @@
                 type="submit">
                 Sign in
             </button>
-        </form>
+        </div>
     </div>
-</div>
+</form>
 {% endblock %}

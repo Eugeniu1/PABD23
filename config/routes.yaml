@@ -1,26 +1,7 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+    resource: ../src/Controller/
+    type: annotation
 
-cristina_drimbarean:
-    path: /crisdrimb
-    controller: App\Controller\CrisDrimbController::main
-    methods: GET
-
-Bibicu_Dorin:
-    path: /BibicuDorin
-    controller: App\Controller\BibicuDorinController::index
-
-MariaNeculaStan:
-    path: /MariaNeculaStan
-    controller: App\Controller\MariaNeculaStanController::index
-
-PaulRadu:
-    path: /create
-    controller: App\Controller\PaulRaduController::create
-
-MarosEugeniu:
-    path: /MarosEugeniu/movies
-    controller: App\Controller\MarosEugeniu\MoviesController::index
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
