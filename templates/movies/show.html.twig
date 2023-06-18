@@ -1,4 +1,4 @@
-{% extends "/MarosEugeniu/base.html.twig" %}
+{% extends "./base.html.twig" %}
 
 {% block body %}
     <div class="sm:w-3/5 w-4/5 mx-auto">
@@ -9,11 +9,11 @@
         <div class="py-10 text-center">
             <div class="inline-block sm:pt-1">
                 <h2 class="font-bold">
-                    Created by: Legion
+                    Created by: Code With Dary
                 </h2>
 
                 <p class="text-sm text-gray-600">
-                    14-06-2023 5 min. read
+                    28-01-2022 4 min. read
                 </p>
             </div>
         </div>
@@ -21,7 +21,7 @@
         <img
             src="{{ movie.imagePath }}"
             class="rounded-xl w-full shadow-xl"
-            alt="Icon of Legion"
+            alt="Icon of Code With Dary"
         />
 
         <p class="text-xl py-6">
@@ -30,13 +30,13 @@
 
         {% if app.user and movie.userId == app.user.id %}
             <a 
-                href="/MarosEugeniu/movies/edit/{{ movie.id }}"
+                href="/movies/edit/{{ movie.id }}"
                 class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
                 Edit Movie
             </a>
 
             <a 
-                href="/MarosEugeniu/movies/delete/{{ movie.id }}"
+                href="/movies/delete/{{ movie.id }}"
                 class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
                 Delete Movie
             </a>

@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Entity\MarosEugeniu;
+namespace App\Entity;
 
-use App\Repository\MarosEugeniu\ActorRepository;
+use App\Repository\ActorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-
-
 
 /**
  * @ORM\Entity(repositoryClass=ActorRepository::class)
  */
-
-class Actor{
-
+class Actor
+{
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -24,30 +20,32 @@ class Actor{
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\ManyToMany(targetEntity=Movie::class, mappedBy="actors")
      */
+    private $movies;
 
-    private $movies = [];
-
-    public function __construct(){
+    public function __construct()
+    {
         $this->movies = new ArrayCollection();
     }
 
-    public function getId(): ?int{
+    public function getId(): ?int
+    {
         return $this->id;
     }
 
-    public function getName(): ?string{
+    public function getName(): ?string
+    {
         return $this->name;
     }
 
-    public function setName(string $name): self{
+    public function setName(string $name): self
+    {
         $this->name = $name;
 
         return $this;
@@ -56,11 +54,13 @@ class Actor{
     /**
      * @return Collection|Movie[]
      */
-    public function getMovies(): Collection{
+    public function getMovies(): Collection
+    {
         return $this->movies;
     }
 
-    public function addMovie(Movie $movie): self{
+    public function addMovie(Movie $movie): self
+    {
         if (!$this->movies->contains($movie)) {
             $this->movies[] = $movie;
             $movie->addActor($this);
@@ -69,7 +69,8 @@ class Actor{
         return $this;
     }
 
-    public function removeMovie(Movie $movie): self{
+    public function removeMovie(Movie $movie): self
+    {
         if ($this->movies->removeElement($movie)) {
             $movie->removeActor($this);
         }

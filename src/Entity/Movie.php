@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\MarosEugeniu;
+namespace App\Entity;
 
-use App\Repository\MarosEugeniu\MovieRepository;
+use App\Repository\MovieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +11,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=MovieRepository::class)
  */
-class Movie{
+class Movie
+{
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -53,58 +54,74 @@ class Movie{
      */
     private $userId;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->actors = new ArrayCollection();
     }
 
-    public function getId(): ?int{
+    public function getId(): ?int
+    {
         return $this->id;
     }
 
-    public function getTitle(): ?string{
+    public function getTitle(): ?string
+    {
         return $this->title;
     }
 
-    public function setTitle(?string $title): self{
+    public function setTitle(?string $title): self
+    {
         $this->title = $title;
+
         return $this;
     }
 
-    public function getReleaseYear(): ?int{
+    public function getReleaseYear(): ?int
+    {
         return $this->releaseYear;
     }
 
-    public function setReleaseYear(?int $releaseYear): self{
+    public function setReleaseYear(?int $releaseYear): self
+    {
         $this->releaseYear = $releaseYear;
+
         return $this;
     }
 
-    public function getDescription(): ?string{
+    public function getDescription(): ?string
+    {
         return $this->description;
     }
 
-    public function setDescription(?string $description): self{
+    public function setDescription(?string $description): self
+    {
         $this->description = $description;
+
         return $this;
     }
 
-    public function getImagePath(): ?string{
+    public function getImagePath(): ?string
+    {
         return $this->imagePath;
     }
 
-    public function setImagePath(?string $imagePath): self{
+    public function setImagePath(?string $imagePath): self
+    {
         $this->imagePath = $imagePath;
+
         return $this;
     }
 
     /**
      * @return Collection|Actor[]
      */
-    public function getActors(): Collection{
+    public function getActors(): Collection
+    {
         return $this->actors;
     }
 
-    public function addActor(Actor $actor): self{
+    public function addActor(Actor $actor): self
+    {
         if (!$this->actors->contains($actor)) {
             $this->actors[] = $actor;
         }
@@ -112,18 +129,22 @@ class Movie{
         return $this;
     }
 
-    public function removeActor(Actor $actor): self{
+    public function removeActor(Actor $actor): self
+    {
         $this->actors->removeElement($actor);
 
         return $this;
     }
 
-    public function getUserId(): ?int{
+    public function getUserId(): ?int
+    {
         return $this->userId;
     }
 
-    public function setUserId(int $userId): self{
+    public function setUserId(int $userId): self
+    {
         $this->userId = $userId;
+
         return $this;
     }
 }
